@@ -13,7 +13,7 @@ const mockEvents = [
 const EventsContent = () => {
   return (
     <EventosContentStyled>
-      {mockEvents.map((event) => <Event title={event.title} href={event.href} />)}
+      {mockEvents.map((event) => <Event title={event.title} href={event.href} key={event.title} />)}
     </EventosContentStyled>
   )
 }
