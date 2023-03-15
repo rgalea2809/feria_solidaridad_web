@@ -29,6 +29,9 @@ export const NavbarContainer = styled.div`
 .links{
     gap:64px;
     display: flex;
+    .active{
+         color:${theme.colors.blue};
+    }
     a{
         text-decoration: none;
         font-family: 'Montserrat';

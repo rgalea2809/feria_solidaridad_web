@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
           <title>Feria de la solidaridad</title>
           <meta name="description" content="Feria de la solidaridad UCA" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/images/logo-feria.png" />
+          <link rel="icon" href="/servicio-social/feria-solidaridad/images/logo-feria.png" />
         </Head>
         <body>
           <Main />
