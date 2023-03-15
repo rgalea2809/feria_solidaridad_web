@@ -74,7 +74,7 @@ flex-direction: column;
     }
       .image{
         height: ${({ show }) => (show ? '0px' : "100%")};
-        background-image: url("/images/vida-uca.jpg");
+        background-image: url("/servicio-social/feria-solidaridad/images/vida-uca.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

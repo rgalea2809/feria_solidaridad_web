@@ -19,6 +19,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/NavBar/HamburgerMenu/Hamburger.styles.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../NavBar/NavBar'
 import { LandingContainer } from './Landing.styles'
-import UCA from '../../../public/images/uca-logo.png'
-import Logo from '../../../public/images/logo-feria.png'
-import Image from 'next/image'
 import Footer from '../Footer/Footer'
 import Message from './Message/Message'
 import GalleryImages from './Gallery/Gallery'
@@ -31,9 +28,9 @@ const Landing = () => {
             <div className='landing-image'>
                 <div className='image' />
                 <div className='landing-content'>
-                    <Image src={UCA} alt="logo" width={153} height={220} className='logo-uca' />
+                    <img src={'/servicio-social/feria-solidaridad/images/uca-logo.png'} alt="logo" width={153} height={220} className='logo-uca' />
                     <div className='header'>
-                        <Image src={Logo} alt="logo" width={203} height={217} className='logo-feria' />
+                        <img src={'/servicio-social/feria-solidaridad/images/logo-feria.png'} alt="logo" width={203} height={217} className='logo-feria' />
                         <h1>Feria de la solidaridad</h1>
                     </div>
                 </div>

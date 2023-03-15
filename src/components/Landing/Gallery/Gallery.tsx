@@ -6,12 +6,12 @@ import { GalleryContainer } from './Gallery.styles';
 import { Title } from '@/styles/Typography';
 
 const images = [
-    '/images/feria-de-solidaridad.jpg',
-    '/images/feria-de-solidaridad.jpg',
-    '/images/feria-de-solidaridad.jpg',
-    '/images/feria-de-solidaridad.jpg',
-    '/images/feria-de-solidaridad.jpg',
-    '/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
+    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
 ]
 
 const GalleryImages = () => {
