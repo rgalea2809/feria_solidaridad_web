@@ -6,8 +6,8 @@ export const DropdownMenuContainer = styled.div<{ isOpen: boolean }>`
   top: 150px;
   left: ${({ isOpen }) => (isOpen ? '0' : '-100vw')};
   z-index: 1;
-  min-height: calc(100vh - 151px);
-  height: 100vh;
+  min-height: ${({ isOpen }) => (isOpen ? 'calc(100vh - 151px);' : '0')};
+  height: ${({ isOpen }) => (isOpen ? '100vh' : '0')};
   width: 100vw;
   background-color: ${theme.colors.background};
   display: flex;
@@ -33,6 +33,9 @@ export const DropdownMenuContainer = styled.div<{ isOpen: boolean }>`
             margin-top: 30px;
         }
     }
+      @media (max-width: ${theme.breakpoints.lg}) {
+          height: 100vh;
+      }
     @media (max-width: ${theme.breakpoints.sm}) {
           top: 88px;
           min-height: calc(100vh - 89px);
