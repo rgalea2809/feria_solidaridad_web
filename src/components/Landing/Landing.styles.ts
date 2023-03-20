@@ -74,7 +74,7 @@ flex-direction: column;
     }
       .image{
         height: ${({ show }) => (show ? '0px' : "100%")};
-        background-image: url("/images/vida-uca.jpg");
+        background-image: url("/servicio-social/feria-solidaridad/images/vida-uca.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -89,16 +89,16 @@ flex-direction: column;
         padding-top: 140px;
         gap:48px;
         .logo-uca{
-          height: 130px;
-          width: 90px;
+          height: 160px;
+          width: 110px;
         }
          .header{
           flex-direction: column;
           align-items: center;
           justify-content: center;
           .logo-feria{
-            height: 120px;
-            width: 120px;
+            height: 200px;
+            width: 200px;
           }
           h1{ 
             text-align: center;
