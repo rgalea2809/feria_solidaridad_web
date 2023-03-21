@@ -1,100 +1,41 @@
 import Layout from '@/src/components/Layout/Layout';
+import Project from '@/src/components/Project/Project';
 import { projectsService } from '@/src/services/proyects';
-import { Project } from '@/src/types';
+import { FullProject, Project as ProjectType } from '@/src/types';
 import { GetStaticProps } from 'next';
 import React from 'react'
 
-interface Iproyect {
-    slug: string
+interface IProject{
+    project: FullProject
 }
 
-const Proyect = ({ slug }: Iproyect) => {
+
+
+const ProjectPage = ({ project }: IProject) => {
     return (
         <Layout>
-            <div>{slug}</div>
-
+            <Project project={project} />
         </Layout>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { slug } = params as { slug: string };
+
+    const project = await projectsService.getProjectById(slug);
     return {
-        props: { slug },
+        props: { project : project },
         revalidate: 120,
     };
 };
 
 export async function getStaticPaths() {
-    const data =
-        [
-            {
-                "id": "18",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "19",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "20",
-                "title": "Programa de Becas Mártires de la UCA",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": null,
-                "hours": null
-            },
-            {
-                "id": "21",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "22",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "23",
-                "title": "Programa de Becas Mártires de la UCA",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": null,
-                "hours": null
-            },
-            {
-                "id": "24",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "25",
-                "title": "test",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": "test",
-                "hours": 100
-            },
-            {
-                "id": "26",
-                "title": "Programa de Becas Mártires de la UCA",
-                "imageUrl": "https://picsum.photos/1200/700",
-                "modality": null,
-                "hours": null
-            }
-        ];
-// change to cosume the service
-    const paths = data.map((project: Project) => ({
-        params: { slug: project.id },
+    const response = await projectsService.getProjects()
+        
+    const paths = response.data.items.map((project: ProjectType) => ({
+        params: {
+            slug: (project.id).toString()
+        },
     }));
 
     return {
@@ -103,4 +44,4 @@ export async function getStaticPaths() {
     };
 }
 
-export default Proyect
+export default ProjectPage
