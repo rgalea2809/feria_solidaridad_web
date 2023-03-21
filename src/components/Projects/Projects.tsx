@@ -9,7 +9,6 @@ import {  ProjectsWrapper } from './Projects.styles'
 const Projects = () => {
   const [projects, setProjects]= useState<Project[]>([]);
   const router = useRouter()
-  const [itemOffset, setItemOffset] = useState(0);
   const [totalItems, setTotalItems]= useState(0)
   const [page, setPage] = useState(1);
   const itemsPerPage = 4;
@@ -29,9 +28,7 @@ const Projects = () => {
  }, [page]) 
 
   const handlePageClick = (selectedItem: { selected: number; }) => {
-    const newOffset = (selectedItem.selected * itemsPerPage) % projects.length +1;
     setPage(selectedItem.selected + 1);
-    setItemOffset(newOffset);
   };
 
   return (

@@ -1,4 +1,3 @@
-import { theme } from '@/styles/theme';
 import styled from 'styled-components';
 
 export const ProjectCardStyle = styled.div`
@@ -7,7 +6,7 @@ display: flex;
 flex-direction: column;
 min-height: 357px;
 width: 100%;
-background-color:${theme.colors.lightGray};
+background: rgba(205, 203, 203, 0.14);
 max-width: 468px;
  img{
         height: 150px;
