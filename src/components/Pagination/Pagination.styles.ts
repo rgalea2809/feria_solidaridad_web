@@ -69,6 +69,7 @@ justify-content: center;
         a{
         cursor:not-allowed !important;
         background-color: ${theme.colors.lightGray} !important;
+        opacity: 0.5;
         }
     }
   }
