@@ -7,26 +7,31 @@ export interface Project {
 }
 
 export interface Meta {
-    totalItems: number,
-    itemCount: number,
-    itemsPerPage: number,
-    totalPages: number,
-    currentPage:number,
+    totalItems: number;
+    itemCount: number;
+    itemsPerPage: number;
+    totalPages: number;
+    currentPage:number;
+}
+
+export interface Image{
+    url: string;
+    alt?: string | null;
 }
 
 export interface AllProjectsResponse {
     data: {
-        items: Project[],
-        meta:Meta,
-    },
-    statusCode: number,
-    error: string | null,
+        items: Project[];
+        meta:Meta;
+    };
+    statusCode: number;
+    error: string | null;
     message: string | null
 }
 
 export interface Contact {
-    type: string,
-    data: string,
+    type: string;
+    data: string;
 }
 
 export interface FullProject extends Project{
@@ -38,20 +43,47 @@ export interface FullProject extends Project{
     schedules?: string[] | null;
     requirements: string[];
     contacts: Contact[];
-    institution: Institution,
+    institution: Institution;
 }
 
 export interface FullProjectResponse{
-    data: FullProject,
+    data: FullProject;
+    statusCode: string;
+    error: string | null;
+    message: string | null;
+}
+
+export interface Institution {
+    id: number;
+    name: string;
+    logoUrl: string;
+    aboutUs: string;
+}
+
+export interface FullInstitution extends Institution {
+    objective?: string | null;
+    mission?: string | null;
+    vission?: string | null;
+    videoUrl?: string | null;
+    projects?: Project[] | null;
+    images?: Image[] | null;
+    contacts: Contact[];
+}
+
+export interface FullInstitutionResponse {
+    data: FullInstitution;
     statusCode: string;
     error: string | null;
     message: string | null;
 
 }
 
-export interface Institution {
-    id: number,
-    name: string,
-    logoUrl: string,
-    aboutUs: string,
+export interface AllInstitutionsResponse {
+    data: {
+        items: Institution[];
+        meta: Meta;
+    };
+    statusCode: number;
+    error: string | null;
+    message: string | null
 }
