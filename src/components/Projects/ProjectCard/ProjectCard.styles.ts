@@ -1,3 +1,4 @@
+import { theme } from '@/styles/theme';
 import styled from 'styled-components';
 
 export const ProjectCardStyle = styled.div`
@@ -40,6 +41,16 @@ a{
     bottom:16px;
     align-self: flex-end;
     text-decoration: none;
+}
+}
+@media (max-width: ${theme.breakpoints.lg}) {
+    .info{
+        a{
+          margin-top:24px;
+          position: relative;
+          align-self: flex-end;
+          text-decoration: none;
+}
 }
 }
 

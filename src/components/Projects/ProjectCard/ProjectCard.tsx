@@ -13,7 +13,7 @@ const ProjectCard = ({ title, id, imageUrl, hours, modality }: Project) => {
         {modality && <p><b>Modalidad:</b> {modality}</p>}
         {hours && <p><b>Horas Requeridas:</b> {hours}</p>}
 
-        <Link href={`proyectos/${id}`} passHref>
+        <Link href={`/proyectos/${id}`} passHref>
           <PrimaryButton>Ver mas</PrimaryButton>
         </Link>
 
