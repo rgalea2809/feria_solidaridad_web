@@ -20,7 +20,7 @@ const Projects = () => {
         setProjects(response.data.items)
         setTotalItems(response.data.meta.totalItems)
       } catch(e) {
-        console.log(e)
+        
         router.push("/")
       }
     };

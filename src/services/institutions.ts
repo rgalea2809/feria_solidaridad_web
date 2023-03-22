@@ -5,8 +5,8 @@ export const institutionService = {
 
     getInstitutions: async (page?: number, limit?: number) => {
         try {
-            const projects = await axiosInstance.get(`institution?${page && limit ? `page=${page}&limit=${limit}` : ''} `);
-            const response: AllInstitutionsResponse = projects.data;
+            const institution = await axiosInstance.get(`institution?${page && limit ? `page=${page}&limit=${limit}` : ''} `);
+            const response: AllInstitutionsResponse = institution.data;
             if (response.error)
                 throw new Error('Something went wrong try again later!');
             return response;
@@ -16,8 +16,8 @@ export const institutionService = {
     },
     getInstitutionById: async (slug: string) => {
         try {
-            const projects = await axiosInstance.get(`institution/${slug}`);
-            const response: FullInstitutionResponse = projects.data;
+            const institution = await axiosInstance.get(`institution/${slug}`);
+            const response: FullInstitutionResponse = institution.data;
             if (response.error)
                 throw new Error('Something went wrong try again later!');
             return response.data;
