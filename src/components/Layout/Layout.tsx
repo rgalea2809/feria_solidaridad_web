@@ -5,13 +5,13 @@ import { Container } from './Layout.styles'
 
 const Layout = ({ children }: { children: ReactElement }) => {
   return (
-    <div>
+    <>
       <NavBar />
       <Container>
         {children}
       </Container>
       <Footer />
-    </div>
+    </>
   )
 }
 

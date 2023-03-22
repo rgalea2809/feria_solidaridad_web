@@ -2,6 +2,7 @@ import { theme } from '@/styles/theme';
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
+
 padding: 40px 45px;
 background-color: ${theme.colors.blue};
 display: flex;

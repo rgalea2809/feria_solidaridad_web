@@ -1,9 +1,9 @@
 import Document, {
   Html,
-  Head,
   Main,
   NextScript,
   DocumentContext,
+  Head,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
@@ -30,13 +30,8 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en">
-        <Head>
-          <title>Feria de la solidaridad</title>
-          <meta name="description" content="Feria de la solidaridad UCA" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/images/logo-feria.png" />
-        </Head>
+      <Html>
+        <Head />
         <body>
           <Main />
           <NextScript />
