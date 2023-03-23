@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ContactWrapper = styled.div`
 min-width:263px;
+max-width: 442px;
 .contact {
   display: flex;
   gap: 24px;
@@ -26,6 +27,7 @@ min-width:263px;
   }
 
   @media (max-width: ${theme.breakpoints.lg}) {
+    max-width: unset;
     .contact{
         width: 100%;
         p{

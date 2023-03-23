@@ -5,6 +5,8 @@ import { AllProjectsResponse, Project } from '@/src/types';
 import Pagination from '../Pagination/Pagination';
 import ProjectCard from './ProjectCard/ProjectCard';
 import {  ProjectsWrapper } from './Projects.styles'
+import Notiflix from 'notiflix';
+import { theme } from '@/styles/theme';
 
 const Projects = () => {
   const [projects, setProjects]= useState<Project[]>([]);
@@ -13,7 +15,29 @@ const Projects = () => {
   const [page, setPage] = useState(1);
   const itemsPerPage = 4;
 
- useEffect(() => {
+  useEffect(() => {
+    Notiflix.Loading.init({
+      className: 'notiflix-loading',
+      zindex: 4000,
+      backgroundColor: 'rgba(0,0,0,0.8)',
+      rtl: false,
+      fontFamily: 'Quicksand',
+      cssAnimation: true,
+      cssAnimationDuration: 400,
+      clickToClose: false,
+      customSvgUrl: null,
+      customSvgCode: null,
+      svgSize: '80px',
+      svgColor: theme.colors.gray,
+      messageID: 'NotiflixLoadingMessage',
+      messageFontSize: '15px',
+      messageMaxLength: 34,
+      messageColor: '#dcdcdc',
+    });
+  }, [])
+
+  useEffect(() => {
+    Notiflix.Loading.dots()
     const getData = async () => {
       try {
         const response : AllProjectsResponse = await projectsService.getProjects(page, itemsPerPage)
@@ -25,10 +49,12 @@ const Projects = () => {
       }
     };
     getData();
+    Notiflix.Loading.remove();
  }, [page]) 
 
   const handlePageClick = (selectedItem: { selected: number; }) => {
     setPage(selectedItem.selected + 1);
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   };
 
   return (
