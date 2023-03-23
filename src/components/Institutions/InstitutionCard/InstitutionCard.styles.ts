@@ -19,8 +19,9 @@ gap:20px;
     align-items: center;
 
     img{
+        background-color: ${theme.colors.white};
         border-radius: 100%;
-        object-fit: cover;
+        object-fit: contain;
         height: 80px;
         width: 80px;
     }

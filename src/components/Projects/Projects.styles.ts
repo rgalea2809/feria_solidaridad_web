@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ProjectsWrapper = styled.div`
 display: flex;
+min-height: calc(100vh - 151px - 155px);
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -17,6 +18,7 @@ gap:84px;
 }
 
 @media (max-width: ${theme.breakpoints.lg}) {
+    min-height: calc(100vh - 114px -378px);
     .projects{
         width: 100%;
 
