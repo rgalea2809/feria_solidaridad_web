@@ -14,9 +14,9 @@ export const institutionService = {
             throw e;
         }
     },
-    getInstitutionById: async (slug: string) => {
+    getInstitutionBySlug: async (slug: string) => {
         try {
-            const institution = await axiosInstance.get(`institution/${slug}`);
+            const institution = await axiosInstance.get(`institution/search/${slug}`);
             const response: FullInstitutionResponse = institution.data;
             if (response.error)
                 throw new Error('Something went wrong try again later!');

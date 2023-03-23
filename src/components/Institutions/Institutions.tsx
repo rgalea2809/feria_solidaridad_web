@@ -11,7 +11,7 @@ const Institutions = () => {
     const router = useRouter()
     const [totalItems, setTotalItems] = useState(0)
     const [page, setPage] = useState(1);
-    const itemsPerPage = 2;
+    const itemsPerPage = 4;
 
     useEffect(() => {
         const getData = async () => {

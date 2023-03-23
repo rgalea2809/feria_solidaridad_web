@@ -107,7 +107,7 @@ gap:50px;
         justify-content: center;
     }
     .contacts-wrapper{
-        margin-right:-160px;
+        margin-right:-50px;
         width: fit-content;
         max-height:245px;
         display: grid;

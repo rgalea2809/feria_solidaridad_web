@@ -1,5 +1,6 @@
 export interface Project {
     id: string;
+    slug: string;
     title: string;
     imageUrl: string;
     modality?: string | null;
@@ -55,6 +56,7 @@ export interface FullProjectResponse{
 
 export interface Institution {
     id: number;
+    slug: string;
     name: string;
     logoUrl: string;
     aboutUs: string;
