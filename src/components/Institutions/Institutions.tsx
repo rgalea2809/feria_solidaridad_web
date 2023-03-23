@@ -34,7 +34,7 @@ const Institutions = () => {
             messageMaxLength: 34,
             messageColor: '#dcdcdc',
         });
-    },[])
+    }, []);
 
     useEffect(() => {
         Notiflix.Loading.dots()

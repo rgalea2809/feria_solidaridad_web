@@ -4,14 +4,14 @@ import React, { useEffect, useState } from 'react'
 import { AllProjectsResponse, Project } from '@/src/types';
 import Pagination from '../Pagination/Pagination';
 import ProjectCard from './ProjectCard/ProjectCard';
-import {  ProjectsWrapper } from './Projects.styles'
+import { ProjectsWrapper } from './Projects.styles'
 import Notiflix from 'notiflix';
 import { theme } from '@/styles/theme';
 
 const Projects = () => {
-  const [projects, setProjects]= useState<Project[]>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const router = useRouter()
-  const [totalItems, setTotalItems]= useState(0)
+  const [totalItems, setTotalItems] = useState(0)
   const [page, setPage] = useState(1);
   const itemsPerPage = 4;
 
@@ -34,23 +34,23 @@ const Projects = () => {
       messageMaxLength: 34,
       messageColor: '#dcdcdc',
     });
-  }, [])
+  }, []);
 
   useEffect(() => {
     Notiflix.Loading.dots()
     const getData = async () => {
       try {
-        const response : AllProjectsResponse = await projectsService.getProjects(page, itemsPerPage)
+        const response: AllProjectsResponse = await projectsService.getProjects(page, itemsPerPage)
         setProjects(response.data.items)
         setTotalItems(response.data.meta.totalItems)
-      } catch(e) {
-        
+      } catch (e) {
+
         router.push("/")
       }
     };
     getData();
     Notiflix.Loading.remove();
- }, [page]) 
+  }, [page])
 
   const handlePageClick = (selectedItem: { selected: number; }) => {
     setPage(selectedItem.selected + 1);
@@ -62,10 +62,10 @@ const Projects = () => {
       <div className='projects'>
         {projects?.map((project) => <ProjectCard {...project} key={project.id} />)}
       </div>
-        <Pagination
-          onPageChange={handlePageClick}
-          pageCount={ totalItems > itemsPerPage ? Math.ceil(totalItems / itemsPerPage) : 0}
-        />
+      <Pagination
+        onPageChange={handlePageClick}
+        pageCount={totalItems > itemsPerPage ? Math.ceil(totalItems / itemsPerPage) : 0}
+      />
     </ProjectsWrapper>
   )
 }
