@@ -18,32 +18,6 @@ const settings = {
     slidesToScroll: 1
 };
 
-const contactsData = [
-    {
-        type: 'facebook',
-        data:'facebook test'
-    },
-    {
-        type: 'instagram',
-        data: '@intagram'
-    },
-    {
-        type: 'twitter',
-        data: '@twittertest'
-    },
-    {
-        type: 'phone',
-        data: '2257-7777'
-    },
-    {
-        type: 'website',
-        data: 'https://www.googlegooglegooglegoogle.com'
-    },
-    {
-        type: 'email',
-        data: 'some@email.example'
-    },
-]
 
 const Institution = ({ institution }: { institution: FullInstitution }) => {
     const { aboutUs, contacts, name, images, mission, objective, projects, videoUrl, vission } = institution
@@ -74,9 +48,9 @@ const Institution = ({ institution }: { institution: FullInstitution }) => {
               <SectionTitle>Vision</SectionTitle>
               <Paragraph>{vission}</Paragraph>
           </div>}
-          {videoUrl && <div className='video'><IframeStyled>
+          { videoUrl && <div className='video'><IframeStyled>
               <iframe
-                  src={'https://www.youtube.com/embed/7X8II6J-6mU'}
+                  src={videoUrl}
                   title={name}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen />
@@ -90,7 +64,7 @@ const Institution = ({ institution }: { institution: FullInstitution }) => {
           {contacts.length > 0 && <div className='wrapper'>
               <Title>CONTACTOS</Title>
               <div className='contacts-wrapper'>
-                  {contactsData.map((contact, index) => <Contact {...contact} key={index} />)}
+                  {contacts.map((contact, index) => <Contact {...contact} key={index} />)}
               </div>
             </div>}
       </InstitutionWrapper>

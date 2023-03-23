@@ -66,6 +66,9 @@ gap:50px;
         margin: 0;
         text-align: left;
     }
+    p{
+        white-space: pre-wrap;
+    }
 }
 
 .video{
