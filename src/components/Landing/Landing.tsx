@@ -30,7 +30,7 @@ const Landing = () => {
                 <div className='landing-content'>
                     <img src={'/servicio-social/feria-solidaridad/images/uca-logo.png'} alt="logo" width={153} height={220} className='logo-uca' />
                     <div className='header'>
-                        <img src={'/servicio-social/feria-solidaridad/images/logo-feria-cortado.png'} alt="logo" width={200} height={200} className='logo-feria' />
+                        <img src={'/servicio-social/feria-solidaridad/images/logo-feria-cortado.png'} alt="logo" width={160} height={160} className='logo-feria' />
                         <h1>Feria de la solidaridad</h1>
                     </div>
                 </div>

@@ -37,6 +37,8 @@ gap:50px;
     }
 
     .slick-prev{
+        width: fit-content;
+        height: fit-content;
         left: 20px;
         z-index: 2;
         position: absolute ;
@@ -47,6 +49,8 @@ gap:50px;
         
     }
     .slick-next{
+        width: fit-content;
+        height: fit-content;
         right: 30px;
         z-index: 2;
         position: absolute;
@@ -127,6 +131,9 @@ gap:30px;
     margin: 0 -16px;
     img{
         height: 400px;
+    }
+     .slick-prev, .slick-next{
+        display: none !important;
     }
 }
 
