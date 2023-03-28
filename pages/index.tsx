@@ -10,7 +10,6 @@ interface Ihome{
 }
 
 export default function Home({ images, homePage }: Ihome) {
-  console.log(images, homePage)
   return (
     <Landing images={ images} homePage={homePage} />
   )

@@ -31,13 +31,13 @@ const AppsBanner = ({ apps }: { apps: Apps[] }) => {
         <AppsBannerContainer>
             <Title>DESCARGA NUESTRAS APLICACIONES MOVILES</Title>
 
-            {apps.map((app) => <div className='app' >
+            {apps.map((app,index) => <div className='app' key={index} >
                 <div className='app-name'>
                     <img src={'/servicio-social/feria-solidaridad/images/phone.png'} alt="phone icon" width={65} height={70} />
                     <h2>{app.name}</h2>
                 </div>
                 <div className='platforms'>
-                    {app.app_stores?.map((store) => <a href={store.url} target="_blank"><img src={getIcon(store.store_name)} alt="app icon" width={45} height={45} /></a>)}
+                    <a href={'https://play.google.com/store/apps/details?id=com.uca.css.feria_solidaridad_app'} target="_blank"><img src={playstore} alt="app icon" width={45} height={45} /></a>
                 </div>
             </div>)}
         </AppsBannerContainer>

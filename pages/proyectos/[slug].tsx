@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export async function getStaticPaths() {
-    const response = await projectsService.getProjects()
+    const response = await projectsService.getProjects(0, 99)
     const paths = response.data.items.map((project: ProjectType) => ({
         params: {
             slug: project.slug

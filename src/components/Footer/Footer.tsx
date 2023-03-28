@@ -17,6 +17,10 @@ const Footer = () => {
                     <img src={'/servicio-social/feria-solidaridad/images/facebook.png'} alt="facebook" width={40} height={40} />
                     <p>Centro de Servicio Social</p>
                 </Link>
+                <Link href="https://instagram.com/cssuca?igshid=YmMyMTA2M2Y=" passHref target="_blank">
+                    <img src={'/servicio-social/feria-solidaridad/images/instagram.png'} alt="facebook" width={40} height={40} />
+                    <p>@cssuca</p>
+                </Link>
                 <Link href="mailto:centro.serviciosocial@uca.edu.sv" passHref target="_blank">
                     <img src={'/servicio-social/feria-solidaridad/images/email.png'} alt="email" width={40} height={40} />
                     <p>centro.serviciosocial@uca.edu.sv</p>
