@@ -41,6 +41,7 @@ flex-direction: column;
     transition: all 0.5s;
     background-color: ${({ show }) => (show ? 'transparent !important' : theme.colors.blue)};
     .landing-content{
+        position:relative;
         display: ${({ show }) => (show ? 'none' : "flex")};
         width: 100%;
         height: 100%;
@@ -49,15 +50,22 @@ flex-direction: column;
         flex-direction: column;
         padding-top: 66px;
         align-items: center;
-        gap: 110px;    
+        .logo-uca{
+          height: 22vh;
+          width: 8vw;
+          align-self: flex-start;
+          margin-left: 40px;
+        }
         .header{
+          position: absolute;
+          bottom:120px;
           width: 100%;
-          background-color: rgba(205, 203, 203, 0.04);
+          background-color: rgba(205, 203, 203, 0.2);
           padding: 24px 0;
           display: flex;
           justify-content: center;
           align-items: center;
-          gap:16px;
+          gap:32px;
           h1{
              max-width: 348px;
              font-family: 'Montserrat';
@@ -67,18 +75,18 @@ flex-direction: column;
              line-height: 59px;
              color: ${theme.colors.white};
              user-select: none;
-             text-shadow: -0.3px 0 black, 0 0.3px black, 0.3px 0 black, 0 -0.3px black;
+             text-shadow: -0.6px 0 black, 0 0.6px black, 0.6px 0 black, 0 -0.6px black;
           }
         }
 
     }
       .image{
         height: ${({ show }) => (show ? '0px' : "100%")};
-        background-image: url("/servicio-social/feria-solidaridad/images/vida-uca.jpg");
+        background-image: url("/servicio-social/feria-solidaridad/images/vida-uca4.jpeg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        opacity: 0.8;
+        opacity: 0.85;
         
       }
 }
@@ -89,16 +97,23 @@ flex-direction: column;
         padding-top: 140px;
         gap:48px;
         .logo-uca{
+          margin-left: unset;
+          align-self: center;
+          margin-top: -60px;
           height: 160px;
           width: 110px;
         }
          .header{
+          bottom:0;
+          margin-bottom: 180px;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          gap:0px;
+          background-color: rgba(205, 203, 203, 0.1);
           .logo-feria{
-            height: 200px;
-            width: 200px;
+            height: 180px;
+            width: 180px;
           }
           h1{ 
             text-align: center;

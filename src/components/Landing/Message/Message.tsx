@@ -1,12 +1,16 @@
-import { message } from '@/src/lang/landing.lang'
 import React from 'react'
 import { IframeStyled, MessageContainer } from './Message.styles'
 
-const Message = () => {
-    const { title, author, paragraph, video } = message
+interface IMessage {
+    message?: string | null;
+    author?: string | null;
+    video: string;
+}
+
+const Message = ({message, author, video}:IMessage) => {
+
     return (
         <MessageContainer>
-            <h1>{title}</h1>
             <div className='video'>
                 <IframeStyled>
                     <iframe
@@ -16,8 +20,8 @@ const Message = () => {
                         allowFullScreen />
                 </IframeStyled>
                 <div className='message'>
-                    <p>{paragraph}</p>
-                    <h2>{author}</h2>
+                    <p>{message}</p>
+                    <h2>-{author}-</h2>
 
                 </div>
 

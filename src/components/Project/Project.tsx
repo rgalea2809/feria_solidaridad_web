@@ -2,6 +2,7 @@ import { FullProject } from '@/src/types'
 import { Paragraph, SectionTitle, SubTitle, Title } from '@/styles/Typography'
 import Link from 'next/link'
 import React from 'react'
+import Contact from '../Institution/Contact/Contact'
 import { ProjectWrapper } from './Project.styles'
 
 const Project = ({ project }: { project: FullProject }) => {
@@ -46,9 +47,10 @@ const Project = ({ project }: { project: FullProject }) => {
                 <SectionTitle>Horario:</SectionTitle>
                 <Paragraph>{schedules.join(", ")}</Paragraph>
             </div>}
-            {contacts.length > 0 && <div className='inline-section'>
-                <SectionTitle>Contacto:</SectionTitle>
-                <Link href={`mailto:${contacts[0].data}`} passHref target="_blank"><Paragraph>{contacts[0].data}</Paragraph></Link>
+            {contacts.length > 0 && <div className='section'>
+                <SectionTitle>Contacto</SectionTitle>
+                {contacts.map((contact) => <Contact {...contact} />)}
+              
             </div>}
         </ProjectWrapper>
     )

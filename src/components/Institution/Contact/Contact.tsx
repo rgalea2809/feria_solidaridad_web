@@ -50,7 +50,7 @@ const Contact = ({ data, type }: ContactType) => {
               </Link>
           }
           {
-              isPhone && <Link href={`tel:${data}`} passHref className='contact'>
+              isPhone && <Link href={`tel:+${data}`} passHref className='contact'>
                   <img src={image} />
                   <p>{data}</p>
               </Link>

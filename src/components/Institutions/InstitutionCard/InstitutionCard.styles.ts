@@ -55,4 +55,14 @@ a{
     align-self: flex-end;
     text-decoration: none;
 }
+@media (max-width: ${theme.breakpoints.lg}) {
+    height: fit-content;
+   
+        a{
+          margin-top:24px;
+          position: relative;
+          align-self: flex-end;
+          text-decoration: none;
+}
+}
 `

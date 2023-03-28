@@ -14,12 +14,23 @@ const eventos = ({events}: {events:Event[]}) => {
   )
 }
 export const getStaticProps: GetStaticProps = async () => {
-  const events = await eventsService.getEvents();
-  return {
-    props: { events: events.data },
-    revalidate: 120,
-  };
-};
+
+  try {
+    const events = await eventsService.getEvents();
+    return {
+      props: { events: events.data },
+      revalidate: 120,
+    };
+  } catch {
+    return {
+      props: {},
+      revalidate: 120,
+      redirect: {
+        destination: "/",
+      },
+    }
+  }
+}
 
 
 export default eventos
