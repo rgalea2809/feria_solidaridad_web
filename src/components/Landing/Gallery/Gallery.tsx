@@ -4,17 +4,10 @@ import FsLightbox from "fslightbox-react";
 import Item from './Item/Item';
 import { GalleryContainer } from './Gallery.styles';
 import { Title } from '@/styles/Typography';
+import { Image } from '@/src/types';
 
-const images = [
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-    '/servicio-social/feria-solidaridad/images/feria-de-solidaridad.jpg',
-]
 
-const GalleryImages = () => {
+const GalleryImages = ({images}: {images: Image[]}) => {
     const [toggler, setToggler] = useState({
         toggler: false,
         sourceIndex: 0,
@@ -23,12 +16,12 @@ const GalleryImages = () => {
         <GalleryContainer>
             <Title>GALERIA DE FOTOS</Title>
             <div className='images'>
-                {images.map((item, index) => <Item src={item} index={index} setToogler={setToggler} key={index} toogler={toggler.toggler} />)}
+                {images.map((item, index) => <Item src={item.url} index={index} setToogler={setToggler} key={index} toogler={toggler.toggler} />)}
             </div>
             <FsLightbox
                 toggler={toggler.toggler}
                 sourceIndex={toggler.sourceIndex}
-                sources={images}
+                sources={images.map((item)=>item.url)}
             />
         </GalleryContainer>
     )

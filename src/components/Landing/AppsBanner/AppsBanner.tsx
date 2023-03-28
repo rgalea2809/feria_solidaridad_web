@@ -17,14 +17,6 @@ const AppsBanner = () => {
                     <img src={'/servicio-social/feria-solidaridad/images/app-store.png'} alt="appstore icon" width={45} height={45} />
                 </div>
             </div>
-            <div className='app'>
-                <div className='app-name'>
-                    <img src={'/servicio-social/feria-solidaridad/images/phone.png'} alt="phone icon" width={65} height={70} />
-                    <h2>CSS UCA</h2></div>
-                <div className='platforms'>
-                    <img src={'/servicio-social/feria-solidaridad/images/playstore.png'} alt="playstore icon" width={45} height={45} />
-                </div>
-            </div>
         </AppsBannerContainer>
     )
 }

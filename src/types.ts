@@ -20,6 +20,13 @@ export interface Image {
     alt?: string | null;
 }
 
+export interface AllImagesResponse {
+    data: Image[];
+    statusCode: string;
+    error: string | null;
+    message: string | null;
+}
+
 export interface AllProjectsResponse {
     data: {
         items: Project[];
@@ -105,4 +112,31 @@ export interface AllEventsResponse {
     statusCode: number;
     error: string | null;
     message: string | null
+}
+export interface AppStores{
+    store_name: string;
+    url: string;
+}
+
+export interface Apps {
+    name: string;
+    app_stores: AppStores[];
+}
+
+export interface HomePage{
+    logo_home_url: string;
+    video_home_url?: string | null;
+    message?: string | null;
+    message_author?: string | null;
+    year_edition: string;
+    haveApps: boolean;
+    apps: Apps[];
+}
+
+export interface AllHomePageResponse{
+    data: HomePage;
+    statusCode: number;
+    error: string | null;
+    message: string | null
+
 }
