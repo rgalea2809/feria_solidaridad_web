@@ -22,7 +22,7 @@ const ProjectPage = ({ project }: IProject) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { slug } = params as { slug: string };
     try {
-        const project = await projectsService.getProjectById(slug);
+        const project = await projectsService.getProjectBySlug(slug);
         return {
             props: { project: project },
             revalidate: 120,
@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 
     const paths = response.data.items.map((project: ProjectType) => ({
         params: {
-            slug: (project.id).toString()
+            slug: project.slug
         },
     }));
 

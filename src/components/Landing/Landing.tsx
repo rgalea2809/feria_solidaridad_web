@@ -44,7 +44,7 @@ const Landing = ({images, homePage}: ILanding ) => {
             <div className='content'>
                 {homePage.video_home_url && <Message message={homePage.message} author={homePage.message_author} video={homePage.video_home_url} />}
                 <GalleryImages images={images}  />
-                {homePage.haveApps && <AppsBanner apps={ homePage.apps} />}
+                {homePage.haveApps && <AppsBanner  />}
             </div>
             <Footer />
 
