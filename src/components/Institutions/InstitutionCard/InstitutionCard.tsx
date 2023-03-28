@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import { InstitutionCardWrapper } from './InstitutionCard.styles'
 
-const InstitutionCard = ({id, aboutUs, logoUrl, name}:Institution) => {
+const InstitutionCard = ({slug, aboutUs, logoUrl, name}:Institution) => {
   return (
       <InstitutionCardWrapper>
           <div className='header'>
@@ -13,7 +13,7 @@ const InstitutionCard = ({id, aboutUs, logoUrl, name}:Institution) => {
               <h1>{name}</h1>
           </div>
           <p className='description'>{aboutUs}</p>
-          <Link href={`instituciones/${id}`} passHref>
+          <Link href={`instituciones/${slug}`} passHref>
               <PrimaryButton>Ver mas</PrimaryButton>
           </Link>
           

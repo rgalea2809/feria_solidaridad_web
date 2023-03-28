@@ -5,8 +5,14 @@ import Footer from '../Footer/Footer'
 import Message from './Message/Message'
 import GalleryImages from './Gallery/Gallery'
 import AppsBanner from './AppsBanner/AppsBanner'
+import { HomePage, Image } from '@/src/types'
 
-const Landing = () => {
+interface ILanding {
+    images: Image[];
+    homePage: HomePage;
+}
+
+const Landing = ({images, homePage}: ILanding ) => {
     const [visible, setVisible] = useState(false);
 
     const listenScrollEvent = () => {
@@ -23,22 +29,22 @@ const Landing = () => {
     return (
         <LandingContainer show={visible}>
             <div className='navbar'>
-                <NavBar />
+                <NavBar logo={ homePage.logo_home_url} />
             </div>
             <div className='landing-image'>
                 <div className='image' />
                 <div className='landing-content'>
                     <img src={'/servicio-social/feria-solidaridad/images/uca-logo.png'} alt="logo" width={153} height={220} className='logo-uca' />
                     <div className='header'>
-                        <img src={'/servicio-social/feria-solidaridad/images/logo-feria-cortado.png'} alt="logo" width={200} height={200} className='logo-feria' />
+                        <img src={homePage.logo_home_url} alt="logo" width={160} height={160} className='logo-feria' />
                         <h1>Feria de la solidaridad</h1>
                     </div>
                 </div>
             </div>
             <div className='content'>
-                <Message /> 
-                <GalleryImages />
-                <AppsBanner/>
+                {homePage.video_home_url && <Message message={homePage.message} author={homePage.message_author} video={homePage.video_home_url} />}
+                <GalleryImages images={images}  />
+                {homePage.haveApps && <AppsBanner apps={homePage.apps} />}
             </div>
             <Footer />
 

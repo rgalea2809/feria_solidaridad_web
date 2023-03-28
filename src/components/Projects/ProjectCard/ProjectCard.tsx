@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import { ProjectCardStyle } from './ProjectCard.styles';
 
-const ProjectCard = ({ title, id, imageUrl, hours, modality }: Project) => {
+const ProjectCard = ({ title, slug, imageUrl, hours, modality }: Project) => {
   return (
     <ProjectCardStyle>
       <img src={imageUrl} alt="project thumbnail" />
@@ -13,7 +13,7 @@ const ProjectCard = ({ title, id, imageUrl, hours, modality }: Project) => {
         {modality && <p><b>Modalidad:</b> {modality}</p>}
         {hours && <p><b>Horas Requeridas:</b> {hours}</p>}
 
-        <Link href={`/proyectos/${id}`} passHref>
+        <Link href={`/proyectos/${slug}`} passHref>
           <PrimaryButton>Ver mas</PrimaryButton>
         </Link>
 

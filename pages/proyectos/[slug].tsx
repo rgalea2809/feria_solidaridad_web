@@ -5,7 +5,7 @@ import { FullProject, Project as ProjectType } from '@/src/types';
 import { GetStaticProps } from 'next';
 import React from 'react'
 
-interface IProject{
+interface IProject {
     project: FullProject
 }
 
@@ -21,20 +21,30 @@ const ProjectPage = ({ project }: IProject) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { slug } = params as { slug: string };
+    try {
+        const project = await projectsService.getProjectBySlug(slug);
+        return {
+            props: { project: project },
+            revalidate: 120,
+        };
 
-    const project = await projectsService.getProjectById(slug);
-    return {
-        props: { project : project },
-        revalidate: 120,
-    };
+    } catch {
+        return {
+            props: {},
+            revalidate: 120,
+            redirect: {
+                destination: "/",
+            },
+        }
+
+    }
 };
 
 export async function getStaticPaths() {
-    const response = await projectsService.getProjects()
-        
+    const response = await projectsService.getProjects(0, 99)
     const paths = response.data.items.map((project: ProjectType) => ({
         params: {
-            slug: (project.id).toString()
+            slug: project.slug
         },
     }));
 

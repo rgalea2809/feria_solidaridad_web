@@ -18,5 +18,4 @@ export const PrimaryButton = styled.button`
     cursor: pointer;
     opacity: 0.85;
  }
-
 `

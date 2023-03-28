@@ -29,8 +29,11 @@ h2{
 }
 
 .platforms{
-    display: flex;
-    gap: 16px;
+     display: flex;
+     gap: 16px;
+    a{
+        text-decoration: none;
+    }
 }
 }
  @media (max-width: ${theme.breakpoints.lg}) {

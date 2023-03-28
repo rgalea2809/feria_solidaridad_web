@@ -15,12 +15,20 @@ const InstitutionPage = ({institution}: {institution: FullInstitution}) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const { slug } = params as { slug: string };
-
-    const institution = await institutionService.getInstitutionById(slug);
-    return {
-        props: { institution: institution },
-        revalidate: 120,
-    };
+    try {
+        const institution = await institutionService.getInstitutionBySlug(slug);
+        return {
+            props: { institution: institution },
+            revalidate: 120,
+        };
+    } catch {
+        return {
+            props: {},
+            redirect: {
+                destination: "/",
+            },
+        }
+    }
 };
 
 export async function getStaticPaths() {
@@ -28,7 +36,7 @@ export async function getStaticPaths() {
 
     const paths = response.data.items.map((institution: InstitutionType) => ({
         params: {
-            slug: (institution.id).toString()
+            slug: institution.slug
         },
     }));
 

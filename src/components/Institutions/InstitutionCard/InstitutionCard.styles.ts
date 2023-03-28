@@ -19,8 +19,9 @@ gap:20px;
     align-items: center;
 
     img{
+        background-color: ${theme.colors.white};
         border-radius: 100%;
-        object-fit: cover;
+        object-fit: contain;
         height: 80px;
         width: 80px;
     }
@@ -53,5 +54,15 @@ a{
     bottom:16px;
     align-self: flex-end;
     text-decoration: none;
+}
+@media (max-width: ${theme.breakpoints.lg}) {
+    height: fit-content;
+   
+        a{
+          margin-top:24px;
+          position: relative;
+          align-self: flex-end;
+          text-decoration: none;
+}
 }
 `

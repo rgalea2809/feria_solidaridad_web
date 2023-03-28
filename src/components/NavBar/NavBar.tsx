@@ -6,7 +6,7 @@ import Hamburguer from './HamburgerMenu/Hamburguer'
 
 import { NavbarContainer } from './NavBar.styles'
 
-const NavBar = () => {
+const NavBar = ({logo}:{logo?:string}) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const router = useRouter()
   const institucion = router.pathname.includes('instituciones')
@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <NavbarContainer>
       <Link className='logo' href='/'>
-        <img src={'/servicio-social/feria-solidaridad/images/logo-feria.png'} alt="logo" width={82} height={82} />
+        <img src={logo || '/servicio-social/feria-solidaridad/images/logo-feria.png'} alt="logo" width={82} height={82} />
         <h1>Feria de la solidaridad</h1>
       </Link>
       <div className='links'>

@@ -37,6 +37,8 @@ gap:50px;
     }
 
     .slick-prev{
+        width: fit-content;
+        height: fit-content;
         left: 20px;
         z-index: 2;
         position: absolute ;
@@ -47,6 +49,8 @@ gap:50px;
         
     }
     .slick-next{
+        width: fit-content;
+        height: fit-content;
         right: 30px;
         z-index: 2;
         position: absolute;
@@ -65,6 +69,9 @@ gap:50px;
     h1, h3{
         margin: 0;
         text-align: left;
+    }
+    p{
+        white-space: pre-wrap;
     }
 }
 
@@ -104,7 +111,7 @@ gap:50px;
         justify-content: center;
     }
     .contacts-wrapper{
-        margin-right:-160px;
+        margin-right:-50px;
         width: fit-content;
         max-height:245px;
         display: grid;
@@ -124,6 +131,9 @@ gap:30px;
     margin: 0 -16px;
     img{
         height: 400px;
+    }
+     .slick-prev, .slick-next{
+        display: none !important;
     }
 }
 

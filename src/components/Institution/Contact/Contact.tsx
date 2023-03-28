@@ -10,11 +10,11 @@ const Contact = ({ data, type }: ContactType) => {
     const instagram = '/servicio-social/feria-solidaridad/images/contacts/ig.png'
     const twitter = '/servicio-social/feria-solidaridad/images/contacts/tw.png'
     const phone = '/servicio-social/feria-solidaridad/images/contacts/phone.png'
-    const website = '/servicio-social/feria-solidaridad/images/contacts/website.png'
+    const web = '/servicio-social/feria-solidaridad/images/contacts/website.png'
     
     const isEmail = type === 'email';
     const isPhone = type === 'phone';
-    const isWebsite = type === 'website';
+    const isWebsite = type === 'web';
     const isNormal = !isEmail && !isPhone && !isWebsite;
     let image = ''
     
@@ -25,8 +25,8 @@ const Contact = ({ data, type }: ContactType) => {
         case 'instagram':
             image = instagram;
             break;
-        case 'website':
-            image = website;
+        case 'web':
+            image = web;
             break;
         case 'twitter':
             image = twitter;
@@ -50,7 +50,7 @@ const Contact = ({ data, type }: ContactType) => {
               </Link>
           }
           {
-              isPhone && <Link href={`tel:${data}`} passHref className='contact'>
+              isPhone && <Link href={`tel:+${data}`} passHref className='contact'>
                   <img src={image} />
                   <p>{data}</p>
               </Link>
