@@ -8,7 +8,7 @@ display: flex;
 flex-direction: column;
 gap:50px;
 
-img{
+.project-img{
     object-fit: cover;
     height: 500px;
     width: 100vw;
@@ -21,6 +21,20 @@ img{
     display: flex;
     flex-direction: column;
     gap:16px;
+    .button{
+        margin-top:24px;
+    align-self: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap:8px;
+    align-items: center;
+    img{
+        height: 25px;
+        width: 25px;
+    }
+}
     h1, h3{
         margin: 0;
         text-align: left;
@@ -51,7 +65,7 @@ img{
 margin-top: -40px;
 gap:30px;
 
-img{
+.project-img{
     margin: 0 -16px;
     height: 400px;
 }

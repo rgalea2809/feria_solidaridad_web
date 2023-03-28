@@ -5,6 +5,7 @@ export interface Project {
     imageUrl: string;
     modality?: string | null;
     hours?: number | null;
+    formUrl?: string | null;
 }
 
 export interface Meta {
