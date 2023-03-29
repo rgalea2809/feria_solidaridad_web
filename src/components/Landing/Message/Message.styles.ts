@@ -5,7 +5,7 @@ export const MessageContainer = styled.div`
 position: relative;
 display: flex;
 flex-direction: column;
-gap:24px;
+gap:28px;
 
    h1{
       font-family: 'Montserrat';
@@ -18,17 +18,21 @@ gap:24px;
     .video{
         position: relative;
         display: flex;
-        justify-content: space-between;
-        max-height: 400px;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        gap:24px;
         .message{
-            width: 30%;
             display: flex;
             flex-direction: column;
-            gap: 32px;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
             p{
                 font-family: 'Roboto';
                 font-style: normal;
                 font-weight: 300;
+                text-align: center;
                 font-size: 24px;
                 line-height: 28px;
             }
@@ -40,7 +44,6 @@ gap:24px;
                 line-height: 28px;
                 color: ${theme.colors.gray};
                 opacity: 0.75;
-                align-self: flex-end
             }
         }
     }
@@ -70,9 +73,9 @@ gap:24px;
 export const IframeStyled = styled.div`
   overflow: hidden;
   position: relative;
-  height: 400px;
-  width: 60%;
-  max-height: 400px;
+  height: 500px;
+  width: 90%;
+  max-height: 500px;
   iframe {
     padding: 0px;
     margin: 0px;
@@ -83,7 +86,7 @@ export const IframeStyled = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    max-height: 400px;
+    max-height: 500px;
   }
   @media screen and (max-width: ${theme.breakpoints.lg}) {
     width: 100%;

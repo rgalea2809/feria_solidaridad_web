@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+   reactStrictMode: true,
    basePath: '/servicio-social/feria-solidaridad',
-  compiler: {
+   compiler: {
     styledComponents: true,
   },
   output: 'export',

@@ -1,57 +1,56 @@
 import Layout from '@/src/components/Layout/Layout';
 import Project from '@/src/components/Project/Project';
 import { projectsService } from '@/src/services/proyects';
-import { FullProject, Project as ProjectType } from '@/src/types';
-import { GetStaticProps } from 'next';
-import React from 'react'
+import { FullProject} from '@/src/types';
+import { theme } from '@/styles/theme';
+import { useRouter } from 'next/router';
+import Notiflix from 'notiflix';
+import React, { useEffect, useState } from 'react'
 
-interface IProject {
-    project: FullProject
-}
+const ProjectPage = () => {
+    const [projectData, setProject] = useState<FullProject>()
+    const router = useRouter();
 
+    useEffect(() => {
+        Notiflix.Loading.init({
+            className: 'notiflix-loading',
+            zindex: 4000,
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            rtl: false,
+            fontFamily: 'Quicksand',
+            cssAnimation: true,
+            cssAnimationDuration: 400,
+            clickToClose: false,
+            customSvgUrl: null,
+            customSvgCode: null,
+            svgSize: '80px',
+            svgColor: theme.colors.gray,
+            messageID: 'NotiflixLoadingMessage',
+            messageFontSize: '15px',
+            messageMaxLength: 34,
+            messageColor: '#dcdcdc',
+        });
+    }, []);
 
-
-const ProjectPage = ({ project }: IProject) => {
+    useEffect(() => {
+        Notiflix.Loading.dots()
+        const getData = async () => {
+            try {
+                const { slug } = router.query
+                const project = await projectsService.getProjectBySlug(slug!!.toString());
+                setProject(project)
+            } catch (e) {
+                router.push('/')
+            }
+        };
+        getData();
+        Notiflix.Loading.remove();
+    }, [])
     return (
         <Layout>
-            <Project project={project} />
+            {projectData ? <Project project={projectData} /> : <div/>}
         </Layout>
     )
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { slug } = params as { slug: string };
-    try {
-        const project = await projectsService.getProjectBySlug(slug);
-        return {
-            props: { project: project },
-            revalidate: 120,
-        };
-
-    } catch {
-        return {
-            props: {},
-            revalidate: 120,
-            redirect: {
-                destination: "/",
-            },
-        }
-
-    }
-};
-
-export async function getStaticPaths() {
-    const response = await projectsService.getProjects(0, 99)
-    const paths = response.data.items.map((project: ProjectType) => ({
-        params: {
-            slug: project.slug
-        },
-    }));
-
-    return {
-        paths: paths,
-        fallback: false
-    };
 }
 
 export default ProjectPage

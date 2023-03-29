@@ -10,6 +10,7 @@ width: 100%;
 background: rgba(205, 203, 203, 0.14);
 max-width: 468px;
  img{
+        width: 100%;
         height: 150px;
         object-fit: cover;
      }

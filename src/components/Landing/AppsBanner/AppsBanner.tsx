@@ -37,7 +37,7 @@ const AppsBanner = ({ apps }: { apps: Apps[] }) => {
                     <h2>{app.name}</h2>
                 </div>
                 <div className='platforms'>
-                    <a href={'https://play.google.com/store/apps/details?id=com.uca.css.feria_solidaridad_app'} target="_blank"><img src={playstore} alt="app icon" width={45} height={45} /></a>
+                    <a href={'https://play.google.com/store/apps/details?id=com.uca.css.feria_solidaridad_app'} target="_blank" rel="noreferrer"><img src={playstore} alt="app icon" width={45} height={45} /></a>
                 </div>
             </div>)}
         </AppsBannerContainer>

@@ -8,8 +8,8 @@ import AppsBanner from './AppsBanner/AppsBanner'
 import { HomePage, Image } from '@/src/types'
 
 interface ILanding {
-    images: Image[];
-    homePage: HomePage;
+    images?: Image[];
+    homePage?: HomePage;
 }
 
 const Landing = ({images, homePage}: ILanding ) => {
@@ -29,22 +29,22 @@ const Landing = ({images, homePage}: ILanding ) => {
     return (
         <LandingContainer show={visible}>
             <div className='navbar'>
-                <NavBar logo={ homePage.logo_home_url} />
+                <NavBar logo={homePage?.logo_home_url || '/servicio-social/feria-solidaridad/images/uca-logo.png' } />
             </div>
             <div className='landing-image'>
                 <div className='image' />
                 <div className='landing-content'>
                     <img src={'/servicio-social/feria-solidaridad/images/uca-logo.png'} alt="logo" width={153} height={220} className='logo-uca' />
                     <div className='header'>
-                        <img src={homePage.logo_home_url} alt="logo" width={160} height={160} className='logo-feria' />
+                        {homePage && <img src={homePage.logo_home_url} alt="logo" width={160} height={160} className='logo-feria' />}
                         <h1>Feria de la solidaridad</h1>
                     </div>
                 </div>
             </div>
             <div className='content'>
-                {homePage.video_home_url && <Message message={homePage.message} author={homePage.message_author} video={homePage.video_home_url} />}
-                <GalleryImages images={images}  />
-                {homePage.haveApps && <AppsBanner apps={homePage.apps} />}
+                {homePage?.video_home_url && <Message message={homePage.message} author={homePage.message_author} video={homePage.video_home_url} />}
+                <GalleryImages images={images || []}  />
+                {homePage?.haveApps && <AppsBanner apps={homePage?.apps} />}
             </div>
             <Footer />
 

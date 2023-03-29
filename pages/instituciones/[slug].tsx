@@ -1,50 +1,57 @@
 import Institution from '@/src/components/Institution/Institution';
 import Layout from '@/src/components/Layout/Layout';
 import { institutionService } from '@/src/services/institutions';
-import {  FullInstitution, Institution as InstitutionType } from '@/src/types';
-import { GetStaticProps } from 'next';
-import React from 'react'
+import {  FullInstitution } from '@/src/types';
+import { theme } from '@/styles/theme';
+import { useRouter } from 'next/router';
+import Notiflix from 'notiflix';
+import React, { useEffect, useState } from 'react'
 
-const InstitutionPage = ({institution}: {institution: FullInstitution}) => {
+const InstitutionPage = () => {
+    const [institutionData, setInstitution] = useState<FullInstitution>()
+    const router = useRouter();
+
+    useEffect(() => {
+        Notiflix.Loading.init({
+            className: 'notiflix-loading',
+            zindex: 4000,
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            rtl: false,
+            fontFamily: 'Quicksand',
+            cssAnimation: true,
+            cssAnimationDuration: 400,
+            clickToClose: false,
+            customSvgUrl: null,
+            customSvgCode: null,
+            svgSize: '80px',
+            svgColor: theme.colors.gray,
+            messageID: 'NotiflixLoadingMessage',
+            messageFontSize: '15px',
+            messageMaxLength: 34,
+            messageColor: '#dcdcdc',
+        });
+    }, []);
+
+    useEffect(() => {
+        Notiflix.Loading.dots()
+        const getData = async () => {
+            try {
+                const { slug } = router.query
+                const insitution = await institutionService.getInstitutionBySlug(slug!!.toString());
+                setInstitution(insitution)
+            } catch (e) {
+                router.push('/')
+            }
+        };
+        getData();
+        Notiflix.Loading.remove();
+    }, [])
+
     return (
       <Layout>
-            <Institution institution={institution} />
+            {institutionData ? <Institution institution={institutionData} /> : <div/>}
       </Layout>
   )
 }
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { slug } = params as { slug: string };
-    try {
-        const institution = await institutionService.getInstitutionBySlug(slug);
-        return {
-            props: { institution: institution },
-            revalidate: 120,
-        };
-    } catch {
-        return {
-            props: {},
-            redirect: {
-                destination: "/",
-            },
-        }
-    }
-};
-
-export async function getStaticPaths() {
-    const response = await institutionService.getInstitutions()
-
-    const paths = response.data.items.map((institution: InstitutionType) => ({
-        params: {
-            slug: institution.slug
-        },
-    }));
-
-    return {
-        paths: paths,
-        fallback: false
-    };
-}
-
 
 export default InstitutionPage
