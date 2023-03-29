@@ -21,10 +21,8 @@ const Message = ({message, author, video}:IMessage) => {
                 </IframeStyled>
                 <div className='message'>
                     <p>{message}</p>
-                    <h2>-{author}-</h2>
-
+                    <h2>- {author} -</h2>
                 </div>
-
             </div>
         </MessageContainer>
     )

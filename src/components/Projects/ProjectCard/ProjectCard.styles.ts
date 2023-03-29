@@ -5,7 +5,7 @@ export const ProjectCardStyle = styled.div`
 position: relative;
 display: flex;
 flex-direction: column;
-min-height: 357px;
+height: 357px;
 width: 100%;
 background: rgba(205, 203, 203, 0.14);
 max-width: 468px;
@@ -29,6 +29,12 @@ h1 {
     font-weight: 500;
     font-size: 24px;
     line-height: 29px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2; 
+    -webkit-box-orient: vertical;
 }
 p{
    margin: 0;
@@ -45,12 +51,26 @@ a{
 }
 }
 @media (max-width: ${theme.breakpoints.lg}) {
+    height: unset;
     .info{
         a{
           margin-top:24px;
           position: relative;
           align-self: flex-end;
           text-decoration: none;
+}
+p{
+    font-size: 14px;
+    line-height: 17px;
+}
+h1{
+    font-size: 16px;
+    line-height: 19px;
+    height: unset;
+     text-overflow: ellipsis;
+     -webkit-line-clamp: unset; /* number of lines to show */
+   line-clamp: unset; 
+   -webkit-box-orient: vertical;
 }
 }
 }

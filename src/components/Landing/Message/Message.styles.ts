@@ -21,7 +21,7 @@ gap:28px;
         flex-direction:column;
         justify-content: center;
         align-items: center;
-        gap:24px;
+        gap:64px;
         .message{
             display: flex;
             flex-direction: column;

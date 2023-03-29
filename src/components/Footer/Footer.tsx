@@ -7,7 +7,7 @@ const Footer = () => {
         <FooterContainer>
             <div className='university'>
                 <img src={'/servicio-social/feria-solidaridad/images/uca-logo.png'} alt="logo" width={55} height={75} className='logo-uca' />
-                <h1>Universidad Cenrtroamericana Jose Simeon Cañas</h1>
+                <h1>Universidad Centroamericana José Simeón Cañas</h1>
             </div>
             <div className='institution'>
                 <h1>Centro de Servicio Social {new Date().getFullYear()}</h1>
